@@ -1,10 +1,11 @@
 import React from 'react';
-import { NativeBaseProvider, Text } from 'native-base';
+import { NativeBaseProvider } from 'native-base';
+import Home from './Views/Home';
 
 const App: React.FC = () => {
   return (
     <NativeBaseProvider>
-      <Text>Hello world here</Text>
+      <Home />
     </NativeBaseProvider>
   );
 };
