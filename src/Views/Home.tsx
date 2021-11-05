@@ -1,6 +1,5 @@
 import React from 'react';
 import { AddIcon, Box, Fab, FlatList } from 'native-base';
-import TopBarComponent from '../Components/TopBarComponent';
 import ListItemComponent from '../Components/ListItemComponent';
 
 const Home: React.FC = () => {
@@ -14,7 +13,6 @@ const Home: React.FC = () => {
 
   return (
     <Box h="full">
-      <TopBarComponent />
       <FlatList
         data={notes}
         renderItem={({ item }) => (
