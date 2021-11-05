@@ -1,9 +1,11 @@
-import { Avatar } from 'native-base';
 import React from 'react';
+import { Avatar } from 'native-base';
+import { IAvatarProps } from 'native-base/lib/typescript/components/composites/Avatar';
+import { ImageURISource } from 'react-native';
 
 interface Props {
-  size: string;
-  uri: string;
+  size: IAvatarProps['size'];
+  uri: ImageURISource['uri'];
 }
 
 const AvatarComponent: React.FC<Props> = ({ size, uri }) => {
