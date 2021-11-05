@@ -10,13 +10,13 @@ const ProfileView: React.FC = () => {
     <KeyboardAwareScrollView>
       <VStack pt="5" alignItems="center" h="full">
         <AvatarComponent
-          size="3xs"
+          size="2xl"
           uri="https://pbs.twimg.com/profile_images/1177303899243343872/B0sUJIH0_400x400.jpg"
         />
         <BaseButtonComponent
           text="Update photo"
           onPressAction={() => {}}
-          {...{ mt: '4', mb: '10' }}
+          {...{ mt: '4', mb: '16' }}
         />
 
         <VStack space="5">
