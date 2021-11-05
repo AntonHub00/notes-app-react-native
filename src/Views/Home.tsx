@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, FlatList } from 'native-base';
+import { AddIcon, Box, Fab, FlatList } from 'native-base';
 import TopBarComponent from '../Components/TopBarComponent';
 import ListItemComponent from '../Components/ListItemComponent';
 
@@ -25,6 +25,13 @@ const Home: React.FC = () => {
           />
         )}
         keyExtractor={item => item.id}
+      />
+      <Fab
+        position="absolute"
+        size="sm"
+        bgColor="#00838f"
+        _pressed={{ bgColor: '#005662' }}
+        icon={<AddIcon size="xs" color="white" />}
       />
     </Box>
   );
