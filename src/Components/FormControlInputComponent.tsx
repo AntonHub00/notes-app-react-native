@@ -1,0 +1,46 @@
+import React from 'react';
+import {
+  FormControl,
+  IFormControlProps,
+  IInputProps,
+  Input,
+  WarningOutlineIcon,
+} from 'native-base';
+
+interface Props {
+  inputName: string;
+  placeholder: string;
+  inputType: IInputProps['type'];
+  required: IFormControlProps['isRequired'];
+  invalid: IFormControlProps['isInvalid'];
+  errorMessage?: string;
+}
+
+const FormControlInputComponent: React.FC<Props> = ({
+  inputName,
+  placeholder,
+  inputType,
+  required,
+  invalid,
+  errorMessage,
+}) => {
+  return (
+    <FormControl isRequired={required} isInvalid={invalid}>
+      <FormControl.Label>{inputName}</FormControl.Label>
+      <Input
+        type={inputType}
+        placeholder={placeholder}
+        h="10"
+        w="56"
+        borderColor="#aaa"
+        selectionColor="#99999980"
+        _focus={{ borderColor: '#00838f', borderWidth: '2' }}
+      />
+      <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
+        {errorMessage}
+      </FormControl.ErrorMessage>
+    </FormControl>
+  );
+};
+
+export default FormControlInputComponent;
