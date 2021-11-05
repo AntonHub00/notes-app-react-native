@@ -26,9 +26,7 @@ const Home: React.FC = () => {
       />
       <Button
         m="4"
-        p="2"
-        width="12"
-        height="12"
+        size="16"
         bottom="0"
         right="0"
         position="absolute"
