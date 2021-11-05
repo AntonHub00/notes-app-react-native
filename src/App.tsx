@@ -2,7 +2,7 @@ import React from 'react';
 import { NativeBaseProvider, StatusBar } from 'native-base';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home from './Views/Home';
+import HomeView from './Views/HomeView';
 import ProfileView from './Views/ProfileView';
 import TopBarComponent from './Components/TopBarComponent';
 
@@ -26,7 +26,7 @@ const App: React.FC = () => {
         >
           <Stack.Screen
             name="Home"
-            component={Home}
+            component={HomeView}
             options={({ navigation }) => ({
               header: props => (
                 <TopBarComponent

@@ -2,7 +2,7 @@ import React from 'react';
 import { AddIcon, Box, Button, FlatList } from 'native-base';
 import ListItemComponent from '../Components/ListItemComponent';
 
-const Home: React.FC = () => {
+const HomeView: React.FC = () => {
   const notes = Array(10)
     .fill('')
     .map((_, index) => ({
@@ -40,4 +40,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default HomeView;
