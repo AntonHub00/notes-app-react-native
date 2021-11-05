@@ -5,11 +5,16 @@ interface Props {
   id: string;
   title: string;
   content: string;
+  onNotePress: () => void;
 }
 
-const ListItemComponent: React.FC<Props> = ({ title, content }) => {
+const ListItemComponent: React.FC<Props> = ({
+  title,
+  content,
+  onNotePress,
+}) => {
   return (
-    <Pressable onPress={() => {}}>
+    <Pressable onPress={() => onNotePress()}>
       {({ isPressed }) => (
         <VStack
           m="1.5"

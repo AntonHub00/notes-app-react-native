@@ -8,7 +8,7 @@ type Props = NativeStackScreenProps<{ Note: undefined }, 'Note'>;
 const HomeView: React.FC<Props> = ({ navigation }) => {
   return (
     <Box h="full">
-      <NotesListComponent />
+      <NotesListComponent onNotePress={() => navigation.navigate('Note')} />
       <Button
         m="4"
         size="16"

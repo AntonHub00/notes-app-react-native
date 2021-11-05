@@ -2,7 +2,9 @@ import { FlatList } from 'native-base';
 import React from 'react';
 import ListItemComponent from './ListItemComponent';
 
-const NotesListComponent: React.FC = () => {
+const NotesListComponent: React.FC<{ onNotePress: () => void }> = ({
+  onNotePress,
+}) => {
   const notes = Array(10)
     .fill('')
     .map((_, index) => ({
@@ -19,6 +21,7 @@ const NotesListComponent: React.FC = () => {
           id={item.id}
           title={item.title}
           content={item.content}
+          onNotePress={onNotePress}
         />
       )}
       keyExtractor={item => item.id}
