@@ -18,22 +18,29 @@ const TopBarComponent: React.FC<{ onProfileAvatarPress: () => void }> = ({
   onProfileAvatarPress,
 }) => {
   return (
-    <HStack bg="#00838f" h="12" space="2" p="3" alignItems="center">
-      <Box flex={1} h="10" bg="white" borderRadius="100">
+    <HStack bg="#00838f" h="16" space="2" p="2" alignItems="center">
+      <Box
+        flex={1}
+        justifyContent="center"
+        h="12"
+        bg="white"
+        borderRadius="100"
+      >
         <Input
+          fontSize="sm"
           borderWidth="0"
           selectionColor="#99999980"
           placeholder="Search Notes"
           InputLeftElement={
             <CustomIconButtonComponent
-              icon={<HamburgerIcon size="sm" color="black" />}
+              icon={<HamburgerIcon size="md" color="black" />}
             />
           }
           InputRightElement={
             <CustomIconButtonComponent
               icon={
                 <AvatarComponent
-                  size="xs"
+                  size="sm"
                   uri="https://pbs.twimg.com/profile_images/1177303899243343872/B0sUJIH0_400x400.jpg"
                 />
               }
