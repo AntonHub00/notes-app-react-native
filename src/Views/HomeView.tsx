@@ -1,8 +1,11 @@
 import React from 'react';
 import { AddIcon, Box, Button, FlatList } from 'native-base';
 import ListItemComponent from '../Components/ListItemComponent';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-const HomeView: React.FC = () => {
+type Props = NativeStackScreenProps<{ Note: undefined }, 'Note'>;
+
+const HomeView: React.FC<Props> = ({ navigation }) => {
   const notes = Array(10)
     .fill('')
     .map((_, index) => ({
@@ -33,6 +36,7 @@ const HomeView: React.FC = () => {
         rounded="full"
         bgColor="#00838f"
         _pressed={{ bgColor: '#005662' }}
+        onPress={() => navigation.navigate('Note')}
       >
         <AddIcon size="xs" color="white" />
       </Button>

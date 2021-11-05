@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeView from './Views/HomeView';
 import ProfileView from './Views/ProfileView';
 import TopBarComponent from './Components/TopBarComponent';
+import NoteView from './Views/NoteView';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,6 +41,11 @@ const App: React.FC = () => {
             name="Profile"
             component={ProfileView}
             options={{ title: 'Profile' }}
+          />
+          <Stack.Screen
+            name="Note"
+            component={NoteView}
+            options={{ title: 'Note' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
