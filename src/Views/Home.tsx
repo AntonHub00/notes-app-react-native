@@ -1,5 +1,5 @@
 import React from 'react';
-import { AddIcon, Box, Fab, FlatList } from 'native-base';
+import { AddIcon, Box, Button, FlatList } from 'native-base';
 import ListItemComponent from '../Components/ListItemComponent';
 
 const Home: React.FC = () => {
@@ -24,13 +24,20 @@ const Home: React.FC = () => {
         )}
         keyExtractor={item => item.id}
       />
-      <Fab
+      <Button
+        m="4"
+        p="2"
+        width="12"
+        height="12"
+        bottom="0"
+        right="0"
         position="absolute"
-        size="sm"
+        rounded="full"
         bgColor="#00838f"
         _pressed={{ bgColor: '#005662' }}
-        icon={<AddIcon size="xs" color="white" />}
-      />
+      >
+        <AddIcon size="xs" color="white" />
+      </Button>
     </Box>
   );
 };
