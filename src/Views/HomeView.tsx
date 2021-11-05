@@ -1,32 +1,14 @@
 import React from 'react';
-import { AddIcon, Box, Button, FlatList } from 'native-base';
-import ListItemComponent from '../Components/ListItemComponent';
+import { AddIcon, Box, Button } from 'native-base';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import NotesListComponent from '../Components/NotesListComponent';
 
 type Props = NativeStackScreenProps<{ Note: undefined }, 'Note'>;
 
 const HomeView: React.FC<Props> = ({ navigation }) => {
-  const notes = Array(10)
-    .fill('')
-    .map((_, index) => ({
-      id: index + 1,
-      title: `Note ${index + 1}`,
-      content: `Note ${index + 1} Content`,
-    }));
-
   return (
     <Box h="full">
-      <FlatList
-        data={notes}
-        renderItem={({ item }) => (
-          <ListItemComponent
-            id={item.id}
-            title={item.title}
-            content={item.content}
-          />
-        )}
-        keyExtractor={item => item.id}
-      />
+      <NotesListComponent />
       <Button
         m="4"
         size="16"
