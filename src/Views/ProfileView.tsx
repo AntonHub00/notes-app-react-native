@@ -1,5 +1,5 @@
 import React from 'react';
-import { VStack, ArrowBackIcon, IconButton } from 'native-base';
+import { VStack } from 'native-base';
 import AvatarComponent from '../Components/AvatarComponent';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import BaseButtonComponent from '../Components/BaseButtonComponent';
@@ -8,13 +8,6 @@ import FormControlInputComponent from '../Components/FormControlInputComponent';
 const ProfileView: React.FC = () => {
   return (
     <KeyboardAwareScrollView>
-      <IconButton
-        position="absolute"
-        rounded="full"
-        icon={<ArrowBackIcon />}
-        _pressed={{ bgColor: '#00838f80' }}
-      />
-
       <VStack pt="5" alignItems="center" h="full">
         <AvatarComponent
           size="3xs"
