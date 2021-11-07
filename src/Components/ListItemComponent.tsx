@@ -6,15 +6,21 @@ interface Props {
   title: string;
   content: string;
   onNotePress: () => void;
+  onNoteLongPress: () => void;
 }
 
 const ListItemComponent: React.FC<Props> = ({
   title,
   content,
   onNotePress,
+  onNoteLongPress,
 }) => {
   return (
-    <Pressable onPress={() => onNotePress()}>
+    <Pressable
+      onPress={onNotePress}
+      onLongPress={onNoteLongPress}
+      delayLongPress={100}
+    >
       {({ isPressed }) => (
         <VStack
           m="1.5"
