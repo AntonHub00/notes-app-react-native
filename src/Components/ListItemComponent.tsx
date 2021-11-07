@@ -16,11 +16,7 @@ const ListItemComponent: React.FC<Props> = ({
   onNoteLongPress,
 }) => {
   return (
-    <Pressable
-      onPress={onNotePress}
-      onLongPress={onNoteLongPress}
-      delayLongPress={100}
-    >
+    <Pressable onPress={onNotePress} onLongPress={onNoteLongPress}>
       {({ isPressed }) => (
         <VStack
           m="1.5"
