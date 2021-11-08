@@ -2,8 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface Note {
   id: string;
-  title: string;
-  content: string;
+  title?: string;
+  content?: string;
 }
 
 interface NoteState {
@@ -26,7 +26,7 @@ export const notesSlice = createSlice({
 
 // Exports the actions so we can call the reducer functions in our components
 // (e.g. "addNote").
-export const noteActions = notesSlice.actions;
+export const { addNote } = notesSlice.actions;
 
 // Exports the store itself so it can be "registered" in the root state/store.
 export default notesSlice.reducer;
