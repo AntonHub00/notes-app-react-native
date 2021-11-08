@@ -14,6 +14,8 @@ interface Props {
   required: IFormControlProps['isRequired'];
   invalid: IFormControlProps['isInvalid'];
   errorMessage?: string;
+  value?: string;
+  onChangeText?: (text: string) => void;
 }
 
 const FormControlInputComponent: React.FC<Props> = ({
@@ -23,6 +25,8 @@ const FormControlInputComponent: React.FC<Props> = ({
   required,
   invalid,
   errorMessage,
+  value,
+  onChangeText,
 }) => {
   return (
     <FormControl isRequired={required} isInvalid={invalid}>
@@ -35,6 +39,8 @@ const FormControlInputComponent: React.FC<Props> = ({
         borderColor="#aaa"
         selectionColor="#99999980"
         _focus={{ borderColor: '#00838f', borderWidth: '2' }}
+        value={value}
+        onChangeText={onChangeText}
       />
       <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
         {errorMessage}
