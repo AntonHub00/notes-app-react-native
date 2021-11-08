@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { AddIcon, Box, Button } from 'native-base';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import NotesListComponent from '../Components/NotesListComponent';
 import NoteActionDialogComponent from '../Components/NoteActionDialogComponent';
+import { RootStackParamList } from '../navigation/CustomNavigatorTypes';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-type Props = NativeStackScreenProps<{ Note: undefined }, 'Note'>;
+type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 const HomeView: React.FC<Props> = ({ navigation }) => {
   const [openSheet, setOpenSheet] = useState(false);

@@ -7,8 +7,12 @@ import FormControlInputComponent from '../Components/FormControlInputComponent';
 
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { saveProfileInfo } from '../store/stores/profileInfoSlice';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../navigation/CustomNavigatorTypes';
 
-const ProfileView: React.FC = () => {
+type Props = NativeStackScreenProps<RootStackParamList, 'Profile'>;
+
+const ProfileView: React.FC<Props> = () => {
   const profileInfoState = useAppSelector(state => state.profileInfo);
   const actionsDispatcher = useAppDispatch();
 

@@ -1,6 +1,8 @@
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Input, VStack } from 'native-base';
 import React from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { RootStackParamList } from '../navigation/CustomNavigatorTypes';
 
 interface CustomInputProps {
   placeholder: string;
@@ -31,7 +33,9 @@ const CustomInput: React.FC<CustomInputProps> = ({
   );
 };
 
-const NoteView: React.FC = () => {
+type Props = NativeStackScreenProps<RootStackParamList, 'Note'>;
+
+const NoteView: React.FC<Props> = () => {
   return (
     <KeyboardAwareScrollView>
       <VStack>
