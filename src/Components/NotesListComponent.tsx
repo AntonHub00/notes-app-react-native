@@ -19,7 +19,6 @@ const NotesListComponent: React.FC<Props> = ({
       data={notesState}
       renderItem={({ item }) => (
         <ListItemComponent
-          id={item.id}
           title={item.title}
           content={item.content}
           onNotePress={onNotePress}

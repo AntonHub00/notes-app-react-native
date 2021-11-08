@@ -2,7 +2,6 @@ import { Pressable, Text, VStack } from 'native-base';
 import React from 'react';
 
 interface Props {
-  id: string;
   title: string;
   content: string;
   onNotePress: () => void;
