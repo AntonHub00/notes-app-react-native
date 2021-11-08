@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { VStack } from 'native-base';
+import { useToast, VStack } from 'native-base';
 import AvatarComponent from '../Components/AvatarComponent';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import BaseButtonComponent from '../Components/BaseButtonComponent';
@@ -16,6 +16,8 @@ const ProfileView: React.FC = () => {
   const [lastName, setLastName] = useState(profileInfoState.lastName);
   const [firstNameInvalid, setFirstNameInvalid] = useState(false);
 
+  const saveProfileInfoToast = useToast();
+
   const saveCurrentProfileInfo = () => {
     if (firstName === '') {
       setFirstNameInvalid(true);
@@ -25,6 +27,11 @@ const ProfileView: React.FC = () => {
     setFirstNameInvalid(false);
 
     actionsDispatcher(saveProfileInfo({ firstName, lastName }));
+
+    saveProfileInfoToast.show({
+      description: 'Profile info saved',
+      duration: 2000,
+    });
   };
 
   return (
