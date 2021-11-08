@@ -27,16 +27,21 @@ const ListItemComponent: React.FC<Props> = ({
           borderColor="#aaa"
           bgColor={isPressed ? '#00838f' : '#fff'}
         >
-          <Text
-            fontSize="md"
-            fontWeight="bold"
-            color={isPressed ? '#fff' : '#000'}
-          >
-            title: {title}
-          </Text>
-          <Text fontSize="xs" color={isPressed ? '#fff' : '#555'}>
-            content: {content}
-          </Text>
+          {title ? (
+            <Text
+              fontSize="md"
+              fontWeight="bold"
+              color={isPressed ? '#fff' : '#000'}
+            >
+              {title}
+            </Text>
+          ) : null}
+
+          {content ? (
+            <Text fontSize="xs" color={isPressed ? '#fff' : '#555'}>
+              {content}
+            </Text>
+          ) : null}
         </VStack>
       )}
     </Pressable>
