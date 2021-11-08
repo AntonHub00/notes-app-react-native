@@ -1,6 +1,8 @@
 import React from 'react';
 import { Box, HamburgerIcon, HStack, IconButton, Input } from 'native-base';
 import AvatarComponent from './AvatarComponent';
+import { updateSearchTerm } from '../store/stores/notesSlice';
+import { useAppDispatch } from '../store/hooks';
 
 const CustomIconButtonComponent: React.FC<{
   icon: JSX.Element;
@@ -17,6 +19,8 @@ const CustomIconButtonComponent: React.FC<{
 const TopBarComponent: React.FC<{ onProfileAvatarPress: () => void }> = ({
   onProfileAvatarPress,
 }) => {
+  const actionsDispatcher = useAppDispatch();
+
   return (
     <HStack bg="#00838f" h="16" space="2" p="2" alignItems="center">
       <Box
@@ -31,6 +35,9 @@ const TopBarComponent: React.FC<{ onProfileAvatarPress: () => void }> = ({
           borderWidth="0"
           selectionColor="#99999980"
           placeholder="Search Notes"
+          onChangeText={text =>
+            actionsDispatcher(updateSearchTerm({ searchTerm: text }))
+          }
           InputLeftElement={
             <CustomIconButtonComponent
               icon={<HamburgerIcon size="md" color="black" />}

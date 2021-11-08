@@ -13,10 +13,17 @@ const NotesListComponent: React.FC<Props> = ({
   onNoteLongPress,
 }) => {
   const notesState = useAppSelector(state => state.notes.notes);
+  const searchTerm = useAppSelector(state => state.notes.searchTerm);
+
+  const filteredNotes = () =>
+    notesState.filter(
+      note =>
+        note.title.includes(searchTerm) || note.content.includes(searchTerm),
+    );
 
   return (
     <FlatList
-      data={notesState}
+      data={filteredNotes()}
       renderItem={({ item }) => (
         <ListItemComponent
           title={item.title}
