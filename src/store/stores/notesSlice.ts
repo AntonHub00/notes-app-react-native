@@ -21,12 +21,23 @@ export const notesSlice = createSlice({
     addNote: (state, action: PayloadAction<Note>) => {
       state.notes = [...state.notes, action.payload];
     },
+    updateNote: (state, action: PayloadAction<Note>) => {
+      const { id, title, content } = action.payload;
+
+      state.notes = state.notes.map(note => {
+        if (note.id === id) {
+          return { id, title, content };
+        }
+
+        return note;
+      });
+    },
   },
 });
 
 // Exports the actions so we can call the reducer functions in our components
 // (e.g. "addNote").
-export const { addNote } = notesSlice.actions;
+export const { addNote, updateNote } = notesSlice.actions;
 
 // Exports the store itself so it can be "registered" in the root state/store.
 export default notesSlice.reducer;
