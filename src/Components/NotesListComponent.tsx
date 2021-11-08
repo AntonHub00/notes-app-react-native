@@ -4,7 +4,7 @@ import { useAppSelector } from '../store/hooks';
 import ListItemComponent from './ListItemComponent';
 
 interface Props {
-  onNotePress: () => void;
+  onNotePress: (id: string) => void;
   onNoteLongPress: () => void;
 }
 
@@ -21,7 +21,7 @@ const NotesListComponent: React.FC<Props> = ({
         <ListItemComponent
           title={item.title}
           content={item.content}
-          onNotePress={onNotePress}
+          onNotePress={() => onNotePress(item.id)}
           onNoteLongPress={onNoteLongPress}
         />
       )}

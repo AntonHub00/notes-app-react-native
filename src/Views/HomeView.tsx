@@ -20,7 +20,7 @@ const HomeView: React.FC<Props> = ({ navigation }) => {
 
       <Box h="full">
         <NotesListComponent
-          onNotePress={() => navigation.navigate('Note')}
+          onNotePress={id => navigation.navigate('Note', { id })}
           onNoteLongPress={() => setOpenSheet(true)}
         />
         <Button
