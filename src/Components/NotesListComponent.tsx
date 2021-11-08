@@ -1,5 +1,6 @@
 import { FlatList } from 'native-base';
 import React from 'react';
+import { useAppSelector } from '../store/hooks';
 import ListItemComponent from './ListItemComponent';
 
 interface Props {
@@ -11,17 +12,11 @@ const NotesListComponent: React.FC<Props> = ({
   onNotePress,
   onNoteLongPress,
 }) => {
-  const notes = Array(10)
-    .fill('')
-    .map((_, index) => ({
-      id: index + 1,
-      title: `Note ${index + 1}`,
-      content: `Note ${index + 1} Content`,
-    }));
+  const notesState = useAppSelector(state => state.notes.notes);
 
   return (
     <FlatList
-      data={notes}
+      data={notesState}
       renderItem={({ item }) => (
         <ListItemComponent
           id={item.id}
