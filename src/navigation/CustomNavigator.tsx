@@ -4,8 +4,9 @@ import HomeView from '../Views/HomeView';
 import TopBarComponent from '../Components/TopBarComponent';
 import ProfileView from '../Views/ProfileView';
 import NoteView from '../Views/NoteView';
+import { RootStackParamList } from './CustomNavigatorTypes';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const CustomNavigator: React.FC = () => {
   const { Navigator, Screen } = Stack;
@@ -34,12 +35,8 @@ const CustomNavigator: React.FC = () => {
           ),
         })}
       />
-      <Screen
-        name="Profile"
-        component={ProfileView}
-        options={{ title: 'Profile' }}
-      />
-      <Screen name="Note" component={NoteView} options={{ title: 'Note' }} />
+      <Screen name="Profile" component={ProfileView} />
+      <Screen name="Note" component={NoteView} />
     </Navigator>
   );
 };
