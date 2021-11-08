@@ -2,6 +2,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface Note {
   id: string;
+  title: string;
+  content: string;
+}
+
+interface UpdatableNote {
+  id: string;
   title?: string;
   content?: string;
 }
@@ -21,7 +27,7 @@ export const notesSlice = createSlice({
     addNote: (state, action: PayloadAction<Note>) => {
       state.notes = [...state.notes, action.payload];
     },
-    updateNote: (state, action: PayloadAction<Note>) => {
+    updateNote: (state, action: PayloadAction<UpdatableNote>) => {
       const { id, title, content } = action.payload;
 
       state.notes = state.notes.map(note => {
