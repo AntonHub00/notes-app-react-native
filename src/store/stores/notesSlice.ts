@@ -26,7 +26,9 @@ export const notesSlice = createSlice({
 
       state.notes = state.notes.map(note => {
         if (note.id === id) {
-          return { id, title, content };
+          const titleValue = title ?? note.title;
+          const contentValue = content ?? note.content;
+          return { id, title: titleValue, content: contentValue };
         }
 
         return note;
