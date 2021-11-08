@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import notesSliceReducer from './stores/notesSlice';
+import profileInfoSlice from './stores/profileInfoSlice';
 
 const store = configureStore({
   reducer: {
     notes: notesSliceReducer,
+    profileInfo: profileInfoSlice,
   },
 });
 
