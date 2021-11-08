@@ -34,12 +34,15 @@ export const notesSlice = createSlice({
         return note;
       });
     },
+    removeNote: (state, action: PayloadAction<{ id: string }>) => {
+      state.notes = state.notes.filter(note => note.id !== action.payload.id);
+    },
   },
 });
 
 // Exports the actions so we can call the reducer functions in our components
 // (e.g. "addNote").
-export const { addNote, updateNote } = notesSlice.actions;
+export const { addNote, updateNote, removeNote } = notesSlice.actions;
 
 // Exports the store itself so it can be "registered" in the root state/store.
 export default notesSlice.reducer;
