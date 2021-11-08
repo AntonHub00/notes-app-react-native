@@ -15,11 +15,19 @@ const NotesListComponent: React.FC<Props> = ({
   const notesState = useAppSelector(state => state.notes.notes);
   const searchTerm = useAppSelector(state => state.notes.searchTerm);
 
-  const filteredNotes = () =>
-    notesState.filter(
-      note =>
-        note.title.includes(searchTerm) || note.content.includes(searchTerm),
-    );
+  const filteredNotes = () => {
+    const lowerCaseSearchTerm = searchTerm.toLocaleLowerCase();
+
+    return notesState.filter(note => {
+      const lowerCaseNoteTitle = note.title.toLocaleLowerCase();
+      const lowerCaseNoteContent = note.content.toLocaleLowerCase();
+
+      return (
+        lowerCaseNoteTitle.includes(lowerCaseSearchTerm) ||
+        lowerCaseNoteContent.includes(lowerCaseSearchTerm)
+      );
+    });
+  };
 
   return (
     <FlatList
