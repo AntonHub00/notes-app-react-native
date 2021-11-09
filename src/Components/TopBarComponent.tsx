@@ -43,7 +43,7 @@ const TopBarComponent: React.FC<{ onProfileAvatarPress: () => void }> = ({
               icon={
                 <AvatarComponent
                   size="sm"
-                  uri="https://pbs.twimg.com/profile_images/1177303899243343872/B0sUJIH0_400x400.jpg"
+                  source={require('../images/profileImage.png')}
                 />
               }
               onPressAction={onProfileAvatarPress}

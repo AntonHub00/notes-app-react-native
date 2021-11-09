@@ -43,7 +43,7 @@ const ProfileView: React.FC<Props> = () => {
       <VStack pt="5" alignItems="center" h="full">
         <AvatarComponent
           size="3xs"
-          uri="https://pbs.twimg.com/profile_images/1177303899243343872/B0sUJIH0_400x400.jpg"
+          source={require('../images/profileImage.png')}
         />
         <BaseButtonComponent
           text="Update photo"
