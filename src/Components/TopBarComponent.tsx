@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, HamburgerIcon, HStack, IconButton, Input } from 'native-base';
+import { Box, HStack, IconButton, Input } from 'native-base';
 import AvatarComponent from './AvatarComponent';
 import { updateSearchTerm } from '../store/stores/notesSlice';
 import { useAppDispatch } from '../store/hooks';
@@ -37,11 +37,6 @@ const TopBarComponent: React.FC<{ onProfileAvatarPress: () => void }> = ({
           placeholder="Search Notes"
           onChangeText={text =>
             actionsDispatcher(updateSearchTerm({ searchTerm: text }))
-          }
-          InputLeftElement={
-            <CustomIconButtonComponent
-              icon={<HamburgerIcon size="md" color="black" />}
-            />
           }
           InputRightElement={
             <CustomIconButtonComponent
