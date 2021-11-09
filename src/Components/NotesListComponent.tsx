@@ -5,7 +5,7 @@ import ListItemComponent from './ListItemComponent';
 
 interface Props {
   onNotePress: (id: string) => void;
-  onNoteLongPress: () => void;
+  onNoteLongPress: (id: string) => void;
 }
 
 const NotesListComponent: React.FC<Props> = ({
@@ -37,7 +37,7 @@ const NotesListComponent: React.FC<Props> = ({
           title={item.title}
           content={item.content}
           onNotePress={() => onNotePress(item.id)}
-          onNoteLongPress={onNoteLongPress}
+          onNoteLongPress={() => onNoteLongPress(item.id)}
         />
       )}
       keyExtractor={item => item.id}

@@ -4,16 +4,27 @@ import NotesListComponent from '../Components/NotesListComponent';
 import NoteActionDialogComponent from '../Components/NoteActionDialogComponent';
 import { RootStackParamList } from '../navigation/CustomNavigatorTypes';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
+import { removeNote, setIdOfNoteToDelete } from '../store/stores/notesSlice';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 const HomeView: React.FC<Props> = ({ navigation }) => {
   const [openSheet, setOpenSheet] = useState(false);
 
+  const idOfNoteToDeleteState = useAppSelector(
+    state => state.notes.idOfNoteToDelete,
+  );
+
+  const actionsDispatcher = useAppDispatch();
+
   return (
     <>
       <NoteActionDialogComponent
-        onDelete={() => {}}
+        onDelete={() => {
+          actionsDispatcher(removeNote({ id: idOfNoteToDeleteState }));
+          actionsDispatcher(setIdOfNoteToDelete({ id: '' }));
+        }}
         sheetIsOpen={openSheet}
         closeSheet={() => setOpenSheet(false)}
       />
@@ -21,7 +32,10 @@ const HomeView: React.FC<Props> = ({ navigation }) => {
       <Box h="full">
         <NotesListComponent
           onNotePress={id => navigation.navigate('Note', { id })}
-          onNoteLongPress={() => setOpenSheet(true)}
+          onNoteLongPress={id => {
+            setOpenSheet(true);
+            actionsDispatcher(setIdOfNoteToDelete({ id }));
+          }}
         />
         <Button
           m="4"

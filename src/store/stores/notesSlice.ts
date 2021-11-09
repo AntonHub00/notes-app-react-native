@@ -15,11 +15,13 @@ interface UpdatableNote {
 interface NoteState {
   notes: Note[];
   searchTerm: string;
+  idOfNoteToDelete: string;
 }
 
 const initialState: NoteState = {
   notes: [],
   searchTerm: '',
+  idOfNoteToDelete: '',
 };
 
 export const notesSlice = createSlice({
@@ -51,13 +53,21 @@ export const notesSlice = createSlice({
     ) => {
       state.searchTerm = action.payload.searchTerm;
     },
+    setIdOfNoteToDelete: (state, action: PayloadAction<{ id: string }>) => {
+      state.idOfNoteToDelete = action.payload.id;
+    },
   },
 });
 
 // Exports the actions so we can call the reducer functions in our components
 // (e.g. "addNote").
-export const { addNote, updateNote, removeNote, updateSearchTerm } =
-  notesSlice.actions;
+export const {
+  addNote,
+  updateNote,
+  removeNote,
+  updateSearchTerm,
+  setIdOfNoteToDelete,
+} = notesSlice.actions;
 
 // Exports the store itself so it can be "registered" in the root state/store.
 export default notesSlice.reducer;
