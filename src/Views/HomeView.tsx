@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AddIcon, Box, Button } from 'native-base';
 import NotesListComponent from '../Components/NotesListComponent';
 import NoteActionDialogComponent from '../Components/NoteActionDialogComponent';
 import { RootStackParamList } from '../navigation/CustomNavigatorTypes';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { removeNote, setIdOfNoteToDelete } from '../store/stores/notesSlice';
+import {
+  removeNote,
+  setIdOfNoteToDelete,
+  updateSearchTerm,
+} from '../store/stores/notesSlice';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
@@ -17,6 +21,11 @@ const HomeView: React.FC<Props> = ({ navigation }) => {
   );
 
   const actionsDispatcher = useAppDispatch();
+
+  useEffect(() => {
+    actionsDispatcher(updateSearchTerm({ searchTerm: '' }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
