@@ -8,11 +8,16 @@ import store, { persistor } from './store/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
+import LoadingSpinnerComponent from './Components/LoadingSpinnerComponent';
+
 const App: React.FC = () => {
   return (
     <NativeBaseProvider>
       <Provider store={store}>
-        <PersistGate persistor={persistor}>
+        <PersistGate
+          persistor={persistor}
+          loading={<LoadingSpinnerComponent />}
+        >
           <StatusBar backgroundColor="#005662" />
           <NavigationContainer>
             <CustomNavigator />
