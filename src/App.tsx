@@ -10,16 +10,16 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 const App: React.FC = () => {
   return (
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <NativeBaseProvider>
+    <NativeBaseProvider>
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
           <StatusBar backgroundColor="#005662" />
           <NavigationContainer>
             <CustomNavigator />
           </NavigationContainer>
-        </NativeBaseProvider>
-      </PersistGate>
-    </Provider>
+        </PersistGate>
+      </Provider>
+    </NativeBaseProvider>
   );
 };
 
