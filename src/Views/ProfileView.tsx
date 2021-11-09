@@ -44,13 +44,8 @@ const ProfileView: React.FC<Props> = () => {
         <AvatarComponent
           size="3xs"
           source={require('../images/profileImage.png')}
+          {...{ mt: '4', mb: '12' }}
         />
-        <BaseButtonComponent
-          text="Update photo"
-          onPressAction={() => {}}
-          {...{ mt: '4', mb: '6' }}
-        />
-
         <VStack space="5">
           <FormControlInputComponent
             inputName="First name"
