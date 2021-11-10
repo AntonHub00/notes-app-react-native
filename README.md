@@ -13,6 +13,8 @@ section in which you can set you personal info (first and last names).
 ## Characteristics
 
 - React Native
+- App icons
+- Launch/splash screen
 - Native Base (component library)
 - Redux with redux toolkit
 - Navigation to different screens.
