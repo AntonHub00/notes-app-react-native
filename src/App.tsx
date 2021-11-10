@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NativeBaseProvider, StatusBar } from 'native-base';
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -10,7 +10,13 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import LoadingSpinnerComponent from './Components/LoadingSpinnerComponent';
 
+import SplashScreen from 'react-native-splash-screen';
+
 const App: React.FC = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <NativeBaseProvider>
       <Provider store={store}>
