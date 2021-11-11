@@ -10,6 +10,8 @@ Notes", but it is pretty much a notes CRUD app, so you can create,
 visualize/list, update and delete notes. Also there is a little "profile"
 section in which you can set you personal info (first and last names).
 
+**Note**: The app is called "YANA" (Yet Another Notes App).
+
 ## Characteristics
 
 - React Native
